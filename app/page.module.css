@@ -508,6 +508,69 @@
   }
 }
 
+/* ───────────────────── INPUT GROUP ─────────────────────────────── */
+
+.inputGroup {
+  display: flex;
+  gap: 0;
+  justify-content: center;
+  margin-top: 2rem;
+  opacity: 0;
+  animation: fadeInUp 1s ease forwards 2.4s;
+}
+
+.nameInput {
+  font-family: 'Courier New', monospace;
+  font-size: clamp(0.85rem, 1.8vw, 1.1rem);
+  padding: 0.75rem 1.25rem;
+  border: 2px solid rgba(0, 255, 170, 0.3);
+  border-right: none;
+  border-radius: 8px 0 0 8px;
+  background: rgba(255, 255, 255, 0.04);
+  color: #fff;
+  outline: none;
+  width: clamp(180px, 30vw, 320px);
+  letter-spacing: 0.05em;
+  backdrop-filter: blur(8px);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.nameInput::placeholder {
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.nameInput:focus {
+  border-color: rgba(0, 255, 170, 0.6);
+  box-shadow: 0 0 20px rgba(0, 255, 170, 0.15), inset 0 0 10px rgba(0, 255, 170, 0.05);
+}
+
+.submitBtn {
+  font-family: 'Courier New', monospace;
+  font-size: clamp(0.85rem, 1.8vw, 1.1rem);
+  font-weight: 700;
+  padding: 0.75rem 1.5rem;
+  border: 2px solid rgba(123, 47, 255, 0.5);
+  border-radius: 0 8px 8px 0;
+  background: linear-gradient(135deg, rgba(123, 47, 255, 0.25), rgba(255, 45, 149, 0.2));
+  color: #fff;
+  cursor: pointer;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+}
+
+.submitBtn:hover {
+  background: linear-gradient(135deg, rgba(123, 47, 255, 0.45), rgba(255, 45, 149, 0.35));
+  border-color: rgba(123, 47, 255, 0.8);
+  box-shadow: 0 0 25px rgba(123, 47, 255, 0.3), 0 0 50px rgba(255, 45, 149, 0.15);
+  transform: scale(1.02);
+}
+
+.submitBtn:active {
+  transform: scale(0.97);
+}
+
 /* ───────────────────── LETTER HOVER ───────────────────────────── */
 
 .letter {

@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import styles from './page.module.css'
 
-const TITLE = 'TEST FROM PHONE'
+const TITLE = 'HOLA'
 const SHAPES_COUNT = 15
 const SPARKLES_COUNT = 20
 
@@ -16,6 +16,8 @@ const Home = () => {
   const [sparkles, setSparkles] = useState([])
   const [mousePos, setMousePos] = useState({ x: 50, y: 50 })
   const [isLoaded, setIsLoaded] = useState(false)
+  const [name, setName] = useState('')
+  const [submitted, setSubmitted] = useState(false)
 
   useEffect(() => {
     const generatedShapes = Array.from({ length: SHAPES_COUNT }, (_, i) => ({
@@ -138,9 +140,28 @@ const Home = () => {
 
         <div className={styles.subtitle}>
           <span className={styles.subtitleText}>
-            {'< sent from the future />'}
+            {submitted ? `${name} 🫸 💩 toma` : '¿Cómo te llamas?'}
           </span>
         </div>
+
+        {!submitted && (
+          <div className={styles.inputGroup}>
+            <input
+              className={styles.nameInput}
+              type="text"
+              placeholder="Escribe tu nombre..."
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              onKeyDown={(e) => e.key === 'Enter' && name.trim() && setSubmitted(true)}
+            />
+            <button
+              className={styles.submitBtn}
+              onClick={() => name.trim() && setSubmitted(true)}
+            >
+              Saludar
+            </button>
+          </div>
+        )}
       </div>
 
       <div className={styles.scanline} />
